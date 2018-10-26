@@ -1,0 +1,11 @@
+compile:
+  image: debian:stretch
+  before_script:
+  - apt-get update && apt-get install -y --no-install-recommends avr-libc make
+  script:
+  - cd FW/button_test
+  - make build
+  artifacts:
+    paths:
+    - FW/button_test/*.bin
+    - FW/button_test/*.hex
